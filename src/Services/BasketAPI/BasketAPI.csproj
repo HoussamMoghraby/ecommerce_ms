@@ -10,6 +10,7 @@
     <PackageReference Include="Carter" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Marten" Version="7.39.3" />
   </ItemGroup>
 
   <ItemGroup>
