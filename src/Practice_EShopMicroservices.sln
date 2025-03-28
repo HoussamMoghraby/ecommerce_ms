@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketAPI", "Services\BasketAPI\BasketAPI.csproj", "{F948EE97-7345-453C-8154-C66008E8DFC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.gRPC", "Services\Discount\Discount.gRPC.csproj", "{B3350431-B907-46E0-BADE-13ED70BCED06}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountgRPC", "Services\Discount\DiscountgRPC.csproj", "{B3350431-B907-46E0-BADE-13ED70BCED06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
