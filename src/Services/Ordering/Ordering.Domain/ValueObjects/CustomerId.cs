@@ -6,7 +6,7 @@ public record CustomerId
 
     private CustomerId(Guid value) => Value = value;
 
-    internal static CustomerId Of(Guid value)
+    public static CustomerId Of(Guid value)
     {
         if (value == Guid.Empty)
         {

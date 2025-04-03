@@ -5,7 +5,7 @@ public record OrderItemId
     public Guid Value { get; }
     private OrderItemId(Guid value) => Value = value;
 
-    internal static OrderItemId Of(Guid value)
+    public static OrderItemId Of(Guid value)
     {
         if (value == Guid.Empty)
         {
