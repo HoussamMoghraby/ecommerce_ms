@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using Ordering.Domain.Events;
 
 namespace Ordering.Domain.Models;
 
