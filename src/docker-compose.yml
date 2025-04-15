@@ -9,6 +9,8 @@ services:
     image: postgres
   distributedcache:
     image: redis
+  orderingdb:
+    image: postgres
 
   catalogapi:
     image: catalogapi
@@ -28,3 +30,4 @@ services:
 volumes:
   postgres_catalog:
   postgres_basket:
+  postgres_ordering:

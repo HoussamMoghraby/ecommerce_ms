@@ -28,7 +28,17 @@ services:
     restart: always
     ports:
       - "6379:6379"
-
+  orderingdb:
+    container_name: orderingdb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=OrderingDb
+    restart: always
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_ordering:/var/lib/postgresql/data/
   catalogapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

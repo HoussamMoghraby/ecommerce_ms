@@ -7,6 +7,10 @@ public record Payment
     public string Expiration { get; } = default!;
     public string CVV { get; } = default!;
     public int PaymentMethod { get; } = default!;
+    public Payment()
+    {
+
+    }
 
     private Payment(string cardName, string cardNumber, string expiration, string cvv, int paymentMethod)
     {

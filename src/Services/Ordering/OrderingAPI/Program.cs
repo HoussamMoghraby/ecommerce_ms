@@ -1,5 +1,6 @@
 using Ordering.Application;
 using Ordering.Infrastructure;
+using Ordering.Infrastructure.Extensions;
 using OrderingAPI;
 using Scalar.AspNetCore;
 
@@ -22,6 +23,8 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.MapScalarApiReference("/");
+
+    await app.InitialiseDatabaseAsync();
 }
 
 app.Run();
