@@ -1,7 +1,6 @@
-using System;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Ordering.Application.Data;
 using Ordering.Infrastructure.Data;
 using Ordering.Infrastructure.Data.Interceptors;
 
@@ -19,6 +18,7 @@ public static class DependencyInjection
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
             options.UseNpgsql(connectionString);
         });
+        services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
         return services;
     }
 }
