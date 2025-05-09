@@ -1,19 +1,10 @@
-namespace Ordering.Application.Orders.Queries;
+using System;
 
-public class GetOrderByNameHandler(IApplicationDbContext dbContext) : IQueryHandler<GetOrdersByNameQuery, GetOrdersByNameResult>
+namespace Ordering.Application.Extensions;
+
+public static class OrderExtensions
 {
-    public async Task<GetOrdersByNameResult> Handle(GetOrdersByNameQuery query, CancellationToken cancellationToken)
-    {
-        var orders = await dbContext.Orders.Where(o => o.OrderName == OrderName.Of(query.Name)).ToListAsync(cancellationToken);
-        if (orders == null || !orders.Any())
-        {
-            throw new NotFoundException($"No orders found for name {query.Name}");
-        }
-        var orderDtos = MapToOrdersDto(orders);
-        return new GetOrdersByNameResult(orderDtos);
-    }
-
-    private IEnumerable<OrderDto> MapToOrdersDto(IEnumerable<Order> orders)
+    public static IEnumerable<OrderDto> ToOrderDtos(this IEnumerable<Order> orders)
     {
         return orders.Select(o => new OrderDto(
 
