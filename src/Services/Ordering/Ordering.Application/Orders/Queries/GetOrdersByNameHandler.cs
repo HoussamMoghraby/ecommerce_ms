@@ -1,10 +1,3 @@
-using System;
-using BuildingBlocks.Exceptions;
-using Microsoft.EntityFrameworkCore;
-using Ordering.Application.Data;
-using Ordering.Domain.Models;
-using Ordering.Domain.ValueObjects;
-
 namespace Ordering.Application.Orders.Queries;
 
 public class GetOrderByNameHandler(IApplicationDbContext dbContext) : IQueryHandler<GetOrdersByNameQuery, GetOrdersByNameResult>
