@@ -1,3 +1,4 @@
+using BuildingBlocks.Messaging.Masstransit;
 using Discount.gRPC.Protos;
 using HealthChecks.UI.Client;
 using Scalar.AspNetCore;
@@ -27,6 +28,9 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
+
+// Async Services
+builder.Services.AddMassTransitWithRabbitMq(builder.Configuration);
 
 // gRPC client services
 builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
