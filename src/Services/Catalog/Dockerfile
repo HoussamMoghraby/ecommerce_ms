@@ -2,7 +2,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
-
 ENV ASPNETCORE_URLS=http://+:8080
 
 USER app
@@ -11,6 +10,8 @@ ARG configuration=Release
 WORKDIR /src
 COPY ["Services/Catalog/CatalogAPI.csproj", "Services/Catalog/"]
 COPY ["BuildingBlocks/BuildingBlocks/BuildingBlocks.csproj", "BuildingBlocks/BuildingBlocks/"]
+
+
 RUN dotnet restore "Services/Catalog/CatalogAPI.csproj"
 COPY . .
 WORKDIR "/src/Services/Catalog"
