@@ -5,6 +5,7 @@ public class BasketCheckoutDto
     public string UserName { get; set; } = default!;
     public Guid CustomerId { get; set; } = default!;
     public decimal TotalPrice { get; set; }
+    public List<BasketCheckoutEventDto> Items { get; set; } = new();
 
     // Shipping & Billing
     public string FirstName { get; set; } = default!;
@@ -23,3 +24,5 @@ public class BasketCheckoutDto
     public int PaymentMethod { get; set; } = default!;
 
 }
+
+public record BasketCheckoutEventDto(int Quantity, string Color, decimal Price, Guid ProductId, string ProductName);
