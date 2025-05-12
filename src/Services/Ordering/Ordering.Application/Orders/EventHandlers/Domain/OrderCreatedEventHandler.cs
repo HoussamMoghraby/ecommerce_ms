@@ -1,12 +1,16 @@
+using Mapster;
+using MassTransit;
 using Ordering.Domain.Events;
 
 namespace Ordering.Application.Orders.EventHandlers.Domain;
 
-public class OrderCreatedEventHandler(ILogger<OrderCreatedEventHandler> logger) : INotificationHandler<OrderCreatedEvent>
+public class OrderCreatedEventHandler(IPublishEndpoint publishEndpoint, ILogger<OrderCreatedEventHandler> logger) : INotificationHandler<OrderCreatedEvent>
 {
-    public Task Handle(OrderCreatedEvent notification, CancellationToken cancellationToken)
+    public async Task Handle(OrderCreatedEvent domainEvent, CancellationToken cancellationToken)
     {
-        logger.LogInformation("Order Created Event Handled: {OrderId}", notification.order.Id);
-        return Task.CompletedTask;
+        logger.LogInformation("Order Created Event Handled: {OrderId}", domainEvent.order.Id);
+        OrderDto orderCreatedIntegrationEvent = domainEvent.order.Adapt<OrderDto>();
+        // Publish the OrderCreatedIntegrationEvent to the message broker
+        await publishEndpoint.Publish(orderCreatedIntegrationEvent, cancellationToken);
     }
 }
