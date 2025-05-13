@@ -4,6 +4,7 @@ using BuildingBlocks.Behaviors;
 using BuildingBlocks.Messaging.Masstransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.FeatureManagement;
 
 namespace Ordering.Application;
 
@@ -18,6 +19,7 @@ public static class DependencyInjection
             config.AddOpenBehavior(typeof(LoggingBehavior<,>));
         });
         services.AddMassTransitWithRabbitMq(configuration, Assembly.GetExecutingAssembly());
+        services.AddFeatureManagement();
         return services;
     }
 }
