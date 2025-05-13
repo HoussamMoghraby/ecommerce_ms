@@ -39,6 +39,16 @@ services:
       - "5434:5432"
     volumes:
       - postgres_ordering:/var/lib/postgresql/data/
+  messagebroker:
+    container_name: messagebroker
+    hostname: ecommerce-mq
+    restart: always
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "15672:15672"
+      - "5672:5672"
   catalogapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -73,10 +83,14 @@ services:
       - ConnectionStrings__Database=Server=basketdb;Port=5432;Database=BasketDb;User Id=postgres;Password=postgres;Include Error Detail=true
       - ConnectionStrings__Redis=distributedcache:6379
       - GrpcSettings__DiscountUrl=http://discountgrpc:8080
+      - MessageBroker__Host=amqp://ecommerce-mq:5672
+      - MessageBroker__UserName=guest
+      - MessageBroker__Password=guest
     depends_on:
       - basketdb
       - discountgrpc
       - distributedcache
+      - messagebroker
     ports:
       - "6001:8080"
       - "6061:8081"
@@ -89,8 +103,12 @@ services:
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
       - ConnectionStrings__Database=Server=orderingdb;Port=5432;Database=OrderingDb;User Id=postgres;Password=postgres;Include Error Detail=true
+      - MessageBroker__Host=amqp://ecommerce-mq:5672
+      - MessageBroker__UserName=guest
+      - MessageBroker__Password=guest
     depends_on:
       - orderingdb
+      - messagebroker
     ports:
       - "6003:8080"
       - "6063:8081"
