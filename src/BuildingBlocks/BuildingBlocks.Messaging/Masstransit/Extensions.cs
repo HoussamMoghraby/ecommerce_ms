@@ -23,8 +23,8 @@ public static class Extensions
                 cfg.Host(new Uri(configuration["MessageBroker:Host"]!),
                     h =>
                     {
-                        h.Username(configuration["MessageBroker:Username"]);
-                        h.Password(configuration["MessageBroker:Password"]);
+                        h.Username(configuration["MessageBroker:Username"]!);
+                        h.Password(configuration["MessageBroker:Password"]!);
                     });
                 cfg.ConfigureEndpoints(context);
             });
