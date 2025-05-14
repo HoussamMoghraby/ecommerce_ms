@@ -22,7 +22,7 @@ public class BasketCheckoutEventHandler(ISender sender, ILogger<BasketCheckoutEv
         var shippingAddress = new AddressDto(
             basketCheckoutEvent.FirstName,
             basketCheckoutEvent.LastName,
-            basketCheckoutEvent.Email,
+            basketCheckoutEvent.EmailAddress,
             basketCheckoutEvent.AddressLine,
             basketCheckoutEvent.Country,
             basketCheckoutEvent.State,
@@ -30,7 +30,7 @@ public class BasketCheckoutEventHandler(ISender sender, ILogger<BasketCheckoutEv
 
         var billingAddress = new AddressDto(basketCheckoutEvent.FirstName,
             basketCheckoutEvent.LastName,
-            basketCheckoutEvent.Email,
+            basketCheckoutEvent.EmailAddress,
             basketCheckoutEvent.AddressLine,
             basketCheckoutEvent.Country,
             basketCheckoutEvent.State,
@@ -39,7 +39,7 @@ public class BasketCheckoutEventHandler(ISender sender, ILogger<BasketCheckoutEv
         var payment = new PaymentDto(
             basketCheckoutEvent.CardName,
             basketCheckoutEvent.CardNumber,
-            basketCheckoutEvent.CardExpiration,
+            basketCheckoutEvent.Expiration,
             basketCheckoutEvent.CVV,
             basketCheckoutEvent.PaymentMethod);
         var orderId = Guid.NewGuid();

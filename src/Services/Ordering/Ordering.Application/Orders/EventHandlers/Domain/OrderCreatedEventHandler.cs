@@ -10,7 +10,7 @@ public class OrderCreatedEventHandler(IPublishEndpoint publishEndpoint, IFeature
     public async Task Handle(OrderCreatedEvent domainEvent, CancellationToken cancellationToken)
     {
         logger.LogInformation("Order Created Event Handled: {OrderId}", domainEvent.order.Id);
-        OrderDto orderCreatedIntegrationEvent = domainEvent.order.Adapt<OrderDto>();
+        OrderDto orderCreatedIntegrationEvent = domainEvent.order.ToOrderDto();
         // Publish the OrderCreatedIntegrationEvent to the message broker
         if (featureManager.IsEnabledAsync("OrderFullfilment").Result)
         {
