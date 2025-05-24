@@ -43,3 +43,16 @@ graph TD;
     C-->D
 ```
 
+# Important Notes for MAC users
+## EF Core Commands for VS Code and .NET CLI
+Visual Studio Code and .NET CLI
+  dotnet tool install --global dotnet-ef
+  dotnet add package Microsoft.EntityFrameworkCore.Design
+  dotnet ef migrations add InitialCreate
+  dotnet ef database update
+
+## Run EF Migration using cli
+dotnet ef migrations add InitialPostgresCreate -o Data/Migrations -p Ordering.Infrastructure.csproj -s ../OrderingAPI/OrderingAPI.csproj
+## Run EF Update using cli
+dotnet ef database update --project Ordering.Infrastructure.csproj --startup-project ../OrderingAPI/OrderingAPI.csproj   
+
