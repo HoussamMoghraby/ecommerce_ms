@@ -1,7 +1,9 @@
 # 🛒 E-Commerce Microservices Solution (.NET)
 
-This repository contains a complete **e-commerce platform** implemented using **.NET** and **Microservices Architecture**. Each service is independently developed, deployed, and maintained. The solution follows modern architectural patterns such as **Vertical Slicing**, **CQRS**, **Clean Architecture**, **gRPC**, and **Event-Driven Messaging** using RabbitMQ.
+> 🎓 This project is a hands-on implementation of concepts learned from the [.NET 8 Microservices: DDD, CQRS, Vertical/Clean Architecture](https://github.com/aspnetrun/run-aspnetcore-microservices) course.  
+> 🚧 I will be actively adding new features and enhancements soon — stay tuned!
 
+This repository contains a complete **e-commerce platform** implemented using **.NET** and **Microservices Architecture**. Each service is independently developed, deployed, and maintained. The solution follows modern architectural patterns such as **Vertical Slicing**, **CQRS**, **Clean Architecture**, **gRPC**, and **Event-Driven Messaging** using RabbitMQ.
 ---
 
 ## 🧱 Architecture Overview
@@ -43,16 +45,34 @@ graph TD;
     C-->D
 ```
 
+# 📌 Key Design Highlights
+
+- ✅ Decoupled services for modularity and scalability
+- 📦 gRPC for lightweight internal communication
+- 📨 RabbitMQ for event-driven architecture
+- 🔍 CQRS for clear separation of read/write operations
+- 🧼 Clean Architecture in OrderingAPI for maintainability
+
+# 🚀 Future Enhancements
+- Add identity and authentication microservice
+- Integrate distributed tracing (OpenTelemetry)
+- Add payment gateway integration
+- Implement product search using ElasticSearch
+
+
 # Important Notes for MAC users
 ## EF Core Commands for VS Code and .NET CLI
 Visual Studio Code and .NET CLI
-  dotnet tool install --global dotnet-ef
-  dotnet add package Microsoft.EntityFrameworkCore.Design
-  dotnet ef migrations add InitialCreate
-  dotnet ef database update
+  - dotnet tool install --global dotnet-ef
+  - dotnet add package Microsoft.EntityFrameworkCore.Design
+  - dotnet ef migrations add InitialCreate
+  - dotnet ef database update
 
 ## Run EF Migration using cli
 dotnet ef migrations add InitialPostgresCreate -o Data/Migrations -p Ordering.Infrastructure.csproj -s ../OrderingAPI/OrderingAPI.csproj
 ## Run EF Update using cli
 dotnet ef database update --project Ordering.Infrastructure.csproj --startup-project ../OrderingAPI/OrderingAPI.csproj   
+
+
+
 
