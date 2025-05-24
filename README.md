@@ -1,9 +1,9 @@
 # 🛒 E-Commerce Microservices Solution (.NET)
 
 > 🎓 This project is a hands-on implementation of concepts learned from the [.NET 8 Microservices: DDD, CQRS, Vertical/Clean Architecture](https://github.com/aspnetrun/run-aspnetcore-microservices) course.  
-> 🚧 I will be actively adding new features and enhancements soon — stay tuned!
+> 🚧 I will be actively adding new features and enhancements soon - stay tuned!
 
-This repository contains a complete **e-commerce platform** implemented using **.NET** and **Microservices Architecture**. Each service is independently developed, deployed, and maintained. The solution follows modern architectural patterns such as **Vertical Slicing**, **CQRS**, **Clean Architecture**, **gRPC**, and **Event-Driven Messaging** using RabbitMQ.
+> This repository contains a complete **e-commerce platform** implemented using **.NET** and **Microservices Architecture**. Each service is independently developed, deployed, and maintained. The solution follows modern architectural patterns such as **Vertical Slicing**, **CQRS**, **Clean Architecture**, **gRPC**, and **Event-Driven Messaging** using RabbitMQ.
 ---
 
 ## 🧱 Architecture Overview
